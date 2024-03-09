@@ -1,0 +1,19 @@
+<ul>
+    <li *ngFor="let box of boxes | keyvalue" style="margin-bottom: 2em; font-weight: bold; font-size: 1.2em;;">
+      {{ box.value.nom }} : 
+      <ul style="font-weight: normal; font-size: normal;">
+        <li style="margin-top: 0.5em;">Nombre de pièces : {{ box.value.nbPieces }}</li>
+        <li style="margin-top: 0.5em;">Saveurs :</li>
+            <ul>
+                <li *ngFor="let saveur of box.value.saveurs">{{ saveur }}</li>
+            </ul>
+        <li style="margin-top: 0.5em;">Prix : {{ box.value.prix }}€</li>
+        <li style="margin-top: 0.5em;">Aliments :</li>
+            <ul>
+                <li *ngFor="let aliment of box.value.aliments"> {{ aliment.quantite }} x {{ aliment.nom }}</li>
+            </ul>
+        <li style="margin-top: 0.5em; font-size: 1.2em;">Quantité dans le panier : {{ box.value.quantiteCommande }}</li>
+      </ul>
+    </li>
+  </ul>
+  
