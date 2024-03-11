@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ApiSushiService } from '../../service/api-sushi.service';
 import { Box } from '../../models/Box';
 import { Aliment } from '../../models/Aliment';
+import { environment } from '../../../environments/environment';
 
 
 @Component({
@@ -12,6 +13,7 @@ import { Aliment } from '../../models/Aliment';
 export class ContainerCardSushiBoxesComponent {
   
   boxes: Map<number, Box>;
+  pathImage = environment.apiGetImages;
 
   constructor(private apiSushiService: ApiSushiService) {
     this.boxes = new Map;
@@ -32,7 +34,7 @@ export class ContainerCardSushiBoxesComponent {
           box.id = boxApi.id;
           box.nom = boxApi.nom;
           box.nbPieces = boxApi.pieces;
-          box.prix = boxApi.prix;
+          box.prix = boxApi.prix.toFixed(2);
           box.image = boxApi.image;
           box.saveurs = boxApi.saveurs;
           let listeAliments: Aliment[] = [];
