@@ -24,7 +24,7 @@ export class ContainerCardSushiBoxesComponent {
  }
    
 
-  getBoxes(): void{
+  getBoxes(): void{    
     // La méthode va récupérer une collection de boxes de l'API
     this.apiSushiService.getBoxes().subscribe((res: any)=>{
       // Boucle itérant sur chaque objet de l'API pour instancier et valoriser
@@ -47,4 +47,5 @@ export class ContainerCardSushiBoxesComponent {
       }      
     }); 
   }
+    
 }

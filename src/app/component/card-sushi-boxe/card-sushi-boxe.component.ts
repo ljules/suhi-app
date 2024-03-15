@@ -8,8 +8,28 @@ import { Box } from '../../models/Box';
   templateUrl: './card-sushi-boxe.component.html',
   styleUrl: './card-sushi-boxe.component.css'
 })
+
 export class CardSushiBoxeComponent {
   pathImage = environment.apiGetImages;
   @Input() box: Box = new Box();
 
+  nouvQuantite: number = 1;
+
+  incQuantite(): void {
+    if ((this.nouvQuantite + 1 < 100)) this.nouvQuantite += 1;
+  }
+
+  decQuantite(): void {
+    if ((this.nouvQuantite - 1) > 0) this.nouvQuantite -= 1;
+  }
+
+  onChangeInput(event: any) {
+    let newVal: number =parseInt(event.target.value);
+    if (newVal > 1 && newVal < 99) this.nouvQuantite = newVal;
+  }
+
+  ajouter() {
+    this.box.quantiteCommande += this.nouvQuantite;
+    this.nouvQuantite = 1;
+  }
 }
