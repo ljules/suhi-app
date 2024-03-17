@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ManagerPanierService } from '../../service/manager-panier.service';
+
 
 @Component({
   selector: 'app-header',
@@ -6,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+  
+  constructor(private managerPanierSerivce: ManagerPanierService) {}
+
+  getNbBox(): number {
+    return this.managerPanierSerivce.panier.nbBox();
+  }
 
 }

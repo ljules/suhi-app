@@ -15,8 +15,10 @@
 
         <!-- Bulle info quantité en panier :  -->
         <!-- -------------------------------- -->
-        <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-warning" style="font-size: 1.3em;">
-        {{box.quantiteCommande}}
+        <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill"
+        [ngClass]="{'bg-warning': box.quantiteCommande <= 0, 'bg-success': box.quantiteCommande > 0}"
+        style="font-size: 1.3em;">
+        {{ box.quantiteCommande }}
         </span>
 
         <!-- Nom de la box : -->
@@ -53,7 +55,7 @@
                 <!-- IU de gestion des quantités à ajouter au panier : -->
                 <!-- ------------------------------------------------- -->
                 <button type="button" class="btn btn-warning m-1 p-1 pt-0 pb-0" (click)="decQuantite()"><i class="bi bi-cart-dash-fill" style="font-size: 1.5em;"></i></button>
-                <input type="number" min="1" max="99" [value]="nouvQuantite"  (input)="onChangeInput($event)" style="width: 3em; height: 2.em;">
+                <input type="number" min="1" max="99" [value]="nouvQuantite"  (input)="onChangeInput($event)" style="width: 3em; height: 1.8em;">
                 <button type="button" class="btn btn-warning m-1 p-1 pt-0 pb-0" (click)="incQuantite()"><i class="bi bi-cart-plus-fill" style="font-size: 1.5em;"></i></button>            
                 
                 <!-- Ajout de la quantite au panier : -->
